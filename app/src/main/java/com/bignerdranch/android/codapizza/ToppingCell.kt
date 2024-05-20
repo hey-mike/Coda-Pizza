@@ -1,5 +1,6 @@
 package com.bignerdranch.android.codapizza
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,7 +24,6 @@ fun ToppingCell(
     modifier: Modifier = Modifier,
     onClickTopping: () -> Unit
 ) {
-
     Row(verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .clickable { onClickTopping() }
@@ -54,7 +54,7 @@ fun ToppingCell(
 
 @Preview(showBackground = true)
 @Composable
-private fun ToppingCellPreviewOnLeftHalf() {
+fun ToppingCellPreviewOnLeftHalf() {
     ToppingCell(
         topping = Topping.Pepperoni,
         placement = ToppingPlacement.Left,
@@ -64,7 +64,7 @@ private fun ToppingCellPreviewOnLeftHalf() {
 
 @Preview(showBackground = true)
 @Composable
-private fun ToppingCellPreviewNotOnPizza() {
+fun ToppingCellPreviewNotOnPizza() {
     ToppingCell(
         topping = Topping.Pepperoni,
         placement = null,

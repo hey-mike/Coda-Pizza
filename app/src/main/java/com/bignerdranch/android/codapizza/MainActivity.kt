@@ -6,13 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.bignerdranch.android.codapizza.ui.theme.CodaPizzaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            PizzaBuilderScreen()
+            CodaPizzaTheme {
+                PizzaBuilderScreen()
+            }
         }
     }
 }
@@ -20,6 +23,8 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun CodaPizzaAppPreview() {
-    PizzaBuilderScreen()
+    CodaPizzaTheme {
+        PizzaBuilderScreen()
+    }
 }
 

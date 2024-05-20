@@ -14,8 +14,10 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bignerdranch.android.codapizza.PizzaBuilderScreen
+import com.bignerdranch.android.codapizza.R
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -24,8 +26,8 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
+    primary = Color(0xFFB72A33),
+    secondary = Color(0xFF03C4DD),
     tertiary = Pink40
 
     /* Other default colors to override
@@ -47,10 +49,10 @@ fun CodaPizzaTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+//        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+//            val context = LocalContext.current
+//            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+//        }
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
@@ -67,7 +69,7 @@ fun CodaPizzaTheme(
 @Composable
 fun DefaultToolbar() {
     TopAppBar(
-        title = { Text(text = "CodaPizza") },
+        title = { Text(stringResource(R.string.app_name)) },
         colors = TopAppBarDefaults.smallTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
             titleContentColor = Color.White
